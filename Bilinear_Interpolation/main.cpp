@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include "Matrix.h"
 #include "Display.h"
+#include <SDL2/SDL.h>
 
 
 void Usage(){
@@ -27,10 +28,26 @@ void RunFunction ( uint16_t tl, uint16_t tr, uint16_t bl, uint16_t br ){
     m2.setCornerValues(tl, tr, bl, br);
     m2.performBilinearInterpolation();
     m2.print();
-    
+    m2.renderToDisplay();
+       
 }
 
+
+
 int main(int argc, const char * argv[]) {
+    
+    std::cout << "Hello World - lets code SDL Basic program" << std::endl;
+
+    if ( SDL_Init( SDL_INIT_EVERYTHING ) < 0) {
+        std::cout << "SDL init failed " << std::endl;
+    }
+
+    std::cout << "SDL init succeeded" << std::endl;
+
+    SDL_Quit();
+
+    
+    
    if (argc < 4)
    {
        std::cout << "    There are " << argc << " input arguments:\n";

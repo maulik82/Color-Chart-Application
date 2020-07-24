@@ -13,7 +13,7 @@
 class Matrix {
     uint16_t m_tl{0}, m_tr{0}, m_bl{0}, m_br{0};
     std::unique_ptr<Display> disp;
-    	
+
 
 public:
     uint16_t m_numRows, m_numColumns;
@@ -97,9 +97,11 @@ public:
             
         }   //temporary transpose matrix should be out of scope and hence destroyed here
         
-        
         return 0;
     }
     
     
+    void renderToDisplay() {
+        disp->render();
+    }
 };
